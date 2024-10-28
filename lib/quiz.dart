@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smile/data/question4.dart';
-import 'package:smile/questions_screen.dart';
 import 'package:smile/result_sceen.dart';
 import 'package:smile/start_screen.dart';
 
@@ -17,13 +16,20 @@ class Quiz extends StatefulWidget {
 class _QuizState extends State<Quiz> {
  List<String> selectedAnswers = [];
   var activeScreen = 'start-screen';
-   
+   bool time = true; 
   void switchScreen() {
     setState(() {
       activeScreen = 'Questions-Screen';
       });
   }
+
+void currentQuestionIndex  = 'Question_Screen';
+   String previous = 'timer';
+  // final currentQuestionIndex
+
    
+
+
    void chooseAnswer(String answer) {
       selectedAnswers.add(answer);
 
@@ -44,13 +50,15 @@ void restartQuiz() {
 
  @override
  Widget build(context) {
-   Widget screenWidget = StartScreen(switchScreen);
+   Widget screenWidget = const StartScreen();
 
-    if (activeScreen == 'Questions-Screen') {
-       screenWidget = QuestionsScreen(
-        onSelectAnswer: chooseAnswer,
-      );
-    }
+    // if (activeScreen == 'Questions-Screen') {
+    //    screenWidget = QuestionsScreen(
+    //     onSelectAnswer: chooseAnswer,
+    //     ourLenght:questions.length,
+    //     time : time ,
+    //   );
+    // }
  
     if (activeScreen == 'result-screen') {
       screenWidget = ResultsScreen(
@@ -60,21 +68,9 @@ void restartQuiz() {
     }
 
 
-  return MaterialApp(
+  return const MaterialApp(
       home: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 135, 75, 136),
-                 Color.fromARGB(255, 52, 17, 103),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-          child: screenWidget,
-        ),
+        body: StartScreen()
       ),
     );
  }
@@ -82,3 +78,17 @@ void restartQuiz() {
 
 }
 
+// Container(
+//           height: MediaQuery.of(context).size.height,
+//           decoration: const BoxDecoration(
+//             gradient: LinearGradient(
+//               colors: [
+//                 Color.fromARGB(255, 135, 75, 136),
+//                  Color.fromARGB(255, 52, 17, 103),
+//               ],
+//               begin: Alignment.topLeft,
+//               end: Alignment.bottomRight,
+//             ),
+//           ),
+//           child: screenWidget,
+//         ),

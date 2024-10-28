@@ -1,7 +1,6 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsSummary extends StatelessWidget {
   const QuestionsSummary(this.summaryData, {super.key});
@@ -25,10 +24,10 @@ class QuestionsSummary extends StatelessWidget {
                   margin: const EdgeInsets.all(15),
                   height: 50,
                   width: 50,
-                 decoration: const BoxDecoration( color: Color.fromARGB(255, 233, 57, 116),shape: BoxShape.circle),
+                 decoration: const BoxDecoration( color: Colors.black54 ,shape: BoxShape.circle),
                   child: Center(
                     child: Text(((data['question_index']  as int) + 1).toString(), 
-                    style: const TextStyle(
+                    style: const TextStyle(color: Colors.white
                     ),),
                   ),
                 ),
@@ -43,8 +42,8 @@ class QuestionsSummary extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                  children: [
                  Text(data['question'] as String, style: const TextStyle(
-                  fontSize: 15,
-                  color: Colors.white
+                  fontSize: 16,
+                  color: Colors.black54
                   ),
                  ),
                  const SizedBox(
@@ -52,11 +51,11 @@ class QuestionsSummary extends StatelessWidget {
                  ),
                  Text(data['user_answer'] as String, style: TextStyle(
                   fontSize: 16,
-                  color: data['user_answer'] == data['correct_answer']? Colors.pinkAccent: Colors.black
+                  color: data['user_answer'] == data['correct_answer']?  Colors.green: Colors.black
                 ),),
                  Text(data['correct_answer'] as String, style: const TextStyle(
                   fontSize: 16,
-                  color:  Colors.blue
+                  color:  Colors.green
                 ),),
                ],
               ),

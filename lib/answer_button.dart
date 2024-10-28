@@ -5,10 +5,13 @@ class AnswerButton extends StatelessWidget {
  const AnswerButton( {
     super.key,
     required this.answerText, 
-    required this.onTap,});
+    required this.onTap, required this.isTrue,});
 
   final String answerText;
   final void Function() onTap;
+  final bool isTrue;
+  
+  
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +21,8 @@ class AnswerButton extends StatelessWidget {
       padding:const EdgeInsets.symmetric(
         vertical: 10, 
         horizontal:40 ),
-      backgroundColor: const Color.fromARGB(255, 224, 208, 208),
-      foregroundColor: const Color.fromARGB(255, 19, 1, 1),
+      backgroundColor:isTrue? Colors.green:Colors.black54,
+      foregroundColor:  Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(40),
         ),
